@@ -1,0 +1,48 @@
+{
+  "name": "meli-ssr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:client": "webpack",
+    "build:server": "babel src --out-dir dist",
+    "build": "npm run build:client && npm run build:server",
+    "start:client": "webpack --watch",
+    "start:server": "nodemon --exec babel-node src/server/index.js",
+    "start": "npm run start:client & npm run start:server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diferpaho/meli-ssr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diferpaho/meli-ssr/issues"
+  },
+  "homepage": "https://github.com/diferpaho/meli-ssr#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/plugin-transform-runtime": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "nodemon": "^2.0.16",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.18.1",
+    "json-server": "^0.16.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^6.3.0"
+  }
+}

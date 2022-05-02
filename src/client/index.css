@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+nav {
+  background-color: #fff159;
+}
+
+.section-content{
+  min-height: 95vh;
+  
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
