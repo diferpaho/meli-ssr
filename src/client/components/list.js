@@ -2,14 +2,18 @@ import React from 'react';
 
 
 function List(props) {
-
+  if (typeof props.list !== 'undefined') {
+    var listJson = JSON.parse(props.list);
+  }
 
   return (
-    <section className='container section-content' style={{ minHeight: '90%' }}>
+    <section id="list-product" className='container section-content' style={{ minHeight: '90%' }}>
       <div className='row content bg-white mx-5 mt-5'>
 
 
-        {JSON.parse(props.list).map((item) => (
+        { props.list !== 'undefined' ?
+        
+        listJson?.map((item) => (
           <>
             <div className='col-2 '>
               <a href={"/items/"+item.id}>
@@ -24,10 +28,13 @@ function List(props) {
               </a>
             </div>
             <div className='col-2 text-start py-5'>
-              <h5>Tecnología</h5>
+              <h5>Tecnologia</h5>
             </div>
           </>
-        ))}
+        ))
+          :
+          <div></div>
+      }
 
         
       </div>

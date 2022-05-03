@@ -61,6 +61,8 @@ http://localhost:3000/api/items/search/:title
 ```` 
 In the case of , the search API works fine, but from the view, the input search didn't work for me.
 
-## Learn More
+## Test
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```` 
+npm run test
+````
