@@ -82,8 +82,10 @@ app.route('/list').get((req, res) => {
     res.send(html);
 });
 
-app.route('/items/:id').get((req, res) => {
-
+app.route('/items/:id').get(async (req, res) => {
+    const response = await axios('http://localhost:3000/api/items/1');
+    const item = response.data;
+    console.log(response.data)
     const root = (
         <html lang="es">
             <head>
@@ -97,7 +99,7 @@ app.route('/items/:id').get((req, res) => {
                 <div id="root2">
                     <div className="App bg-light">
                         <Navbar />
-                        <Detail />
+                        <Detail items={JSON.stringify(item)}/>
                     </div>
                 </div>
                 <script src="/static/bundle.js"></script>

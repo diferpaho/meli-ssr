@@ -32,7 +32,6 @@ var base = {
 
 var items = require('./data.json');
 
-console.log(items);
 app.route('/').get(function (req, res) {
   var root = /*#__PURE__*/_react["default"].createElement("html", {
     lang: "es"
@@ -119,6 +118,39 @@ app.route('/items/:id').get(function (req, res) {
   var html = _server["default"].renderToString(root);
 
   res.send(html);
+});
+app.get('/api/items/', function (request, response) {
+  response.json(items);
+});
+app.get('/api/items/:id', function (request, response) {
+  var id = request.params.id;
+  var smartphone = items.items.find(function (smartphone) {
+    return smartphone.id === id;
+  });
+  base["items"] = smartphone;
+
+  if (base) {
+    return response.json(base);
+  } else {
+    response.status(404).end();
+  }
+
+  base["items"] = "";
+});
+app.get('/api/items/search/:title', function (request, response) {
+  var title = request.params.title.toLowerCase();
+  var smartphone = items.items.filter(function (smartphone) {
+    return smartphone.title.toLowerCase().includes(title);
+  });
+  base["items"] = smartphone;
+
+  if (smartphone) {
+    return response.json(base);
+  } else {
+    response.status(404).end();
+  }
+
+  base["items"] = "";
 });
 app.listen(3000, function () {
   console.log('server started: http://localhost:3000');
