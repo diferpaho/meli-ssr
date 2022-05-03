@@ -66,3 +66,5 @@ In the case of , the search API works fine, but from the view, the input search 
 ```` 
 npm run test
 ````
+
+If you get the message "No tests found related to files changed since last commit" you can press the letter "a" to run the tests
