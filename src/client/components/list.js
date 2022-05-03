@@ -2,6 +2,7 @@ import React from 'react';
 
 
 function List() {
+  
 
   return (
     <section className='container section-content' style={{ minHeight: '90%' }}>

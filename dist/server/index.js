@@ -12,19 +12,17 @@ var _react = _interopRequireDefault(require("react"));
 
 var _server = _interopRequireDefault(require("react-dom/server"));
 
-var _reactRouter = require("react-router");
-
-var _bodyParser = _interopRequireDefault(require("body-parser"));
-
 var _app = _interopRequireDefault(require("../client/components/app"));
 
 var _navbar = _interopRequireDefault(require("../client/components/navbar"));
 
 var _list = _interopRequireDefault(require("../client/components/list"));
 
+var _detail = _interopRequireDefault(require("../client/components/detail"));
+
 var app = (0, _express["default"])();
 app.use('/static', _express["default"]["static"](_path["default"].join(__dirname, '..', '..', 'dist', 'static')));
-app.route('/a').get(function (req, res) {
+app.route('/').get(function (req, res) {
   var root = /*#__PURE__*/_react["default"].createElement("html", {
     lang: "es"
   }, /*#__PURE__*/_react["default"].createElement("head", null, /*#__PURE__*/_react["default"].createElement("meta", {
@@ -51,7 +49,7 @@ app.route('/a').get(function (req, res) {
 
   res.send(html);
 });
-app.route('/b').get(function (req, res) {
+app.route('/list').get(function (req, res) {
   var root = /*#__PURE__*/_react["default"].createElement("html", {
     lang: "es"
   }, /*#__PURE__*/_react["default"].createElement("head", null, /*#__PURE__*/_react["default"].createElement("meta", {
@@ -66,7 +64,34 @@ app.route('/b').get(function (req, res) {
     crossOrigin: "anonymous"
   }), /*#__PURE__*/_react["default"].createElement("title", null, "Meli")), /*#__PURE__*/_react["default"].createElement("body", null, /*#__PURE__*/_react["default"].createElement("div", {
     id: "root2"
-  }, /*#__PURE__*/_react["default"].createElement(_list["default"], null)), /*#__PURE__*/_react["default"].createElement("script", {
+  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null), /*#__PURE__*/_react["default"].createElement(_list["default"], null)), /*#__PURE__*/_react["default"].createElement("script", {
+    src: "/static/bundle.js"
+  }), /*#__PURE__*/_react["default"].createElement("script", {
+    src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
+    integrity: "sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM",
+    crossOrigin: "anonymous"
+  })));
+
+  var html = _server["default"].renderToString(root);
+
+  res.send(html);
+});
+app.route('/items/:id').get(function (req, res) {
+  var root = /*#__PURE__*/_react["default"].createElement("html", {
+    lang: "es"
+  }, /*#__PURE__*/_react["default"].createElement("head", null, /*#__PURE__*/_react["default"].createElement("meta", {
+    charSet: "utf-8"
+  }), /*#__PURE__*/_react["default"].createElement("meta", {
+    name: "viewport",
+    content: "width=device-width, initial-scale=1"
+  }), /*#__PURE__*/_react["default"].createElement("link", {
+    href: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+    rel: "stylesheet",
+    integrity: "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC",
+    crossOrigin: "anonymous"
+  }), /*#__PURE__*/_react["default"].createElement("title", null, "Meli")), /*#__PURE__*/_react["default"].createElement("body", null, /*#__PURE__*/_react["default"].createElement("div", {
+    id: "root2"
+  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null), /*#__PURE__*/_react["default"].createElement(_detail["default"], null)), /*#__PURE__*/_react["default"].createElement("script", {
     src: "/static/bundle.js"
   }), /*#__PURE__*/_react["default"].createElement("script", {
     src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",

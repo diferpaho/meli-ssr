@@ -9,13 +9,9 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactRouterDom = require("react-router-dom");
-
 var _navbar = _interopRequireDefault(require("./navbar"));
 
 var _list = _interopRequireDefault(require("./list"));
-
-var _items = _interopRequireDefault(require("./items"));
 
 var App = function App(props) {
   return /*#__PURE__*/_react["default"].createElement("div", {
