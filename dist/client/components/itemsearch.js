@@ -9,19 +9,18 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactRouterDom = require("react-router-dom");
-
 var _navbar = _interopRequireDefault(require("./navbar"));
 
 var _list = _interopRequireDefault(require("./list"));
 
-var _items = _interopRequireDefault(require("./items"));
-
-var App = function App(props) {
+var Itemsearch = function Itemsearch(props) {
   return /*#__PURE__*/_react["default"].createElement("div", {
     className: "App bg-light"
   }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null));
 };
 
-var _default = App;
+Itemsearch.defaultProps = {
+  items: []
+};
+var _default = Itemsearch;
 exports["default"] = _default;

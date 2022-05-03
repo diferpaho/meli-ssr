@@ -10,6 +10,7 @@
     "start:client": "webpack --watch",
     "start:server": "nodemon --exec babel-node src/server/index.js",
     "start": "npm run start:client & npm run start:server",
+    "dev": "nodemon --exec babel-node src/server/index.js --parallel build:*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,10 +40,11 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "json-server": "^0.16.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "^4.3.1"
   }
 }

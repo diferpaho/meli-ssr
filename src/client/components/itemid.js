@@ -1,16 +1,9 @@
 import React from 'react';
-import {
-    StaticRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 
 import Navbar from './navbar';
 import List from './list';
-import Items from './items';
 
-const App = (props) => {
+const Itemid = (props) => {
 
     return (
         <div className="App bg-light">
@@ -20,4 +13,8 @@ const App = (props) => {
     );
 };
 
-export default App;
+Itemid.defaultProps = {
+    items: []
+};
+
+export default Itemid;
