@@ -22,6 +22,17 @@ var _detail = _interopRequireDefault(require("../client/components/detail"));
 
 var app = (0, _express["default"])();
 app.use('/static', _express["default"]["static"](_path["default"].join(__dirname, '..', '..', 'dist', 'static')));
+var base = {
+  "author": {
+    "name": "diego",
+    "lastname": "palacios"
+  },
+  "categorie": "smartphones"
+};
+
+var items = require('./data.json');
+
+console.log(items);
 app.route('/').get(function (req, res) {
   var root = /*#__PURE__*/_react["default"].createElement("html", {
     lang: "es"
@@ -37,7 +48,9 @@ app.route('/').get(function (req, res) {
     crossOrigin: "anonymous"
   }), /*#__PURE__*/_react["default"].createElement("title", null, "Meli")), /*#__PURE__*/_react["default"].createElement("body", null, /*#__PURE__*/_react["default"].createElement("div", {
     id: "root3"
-  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null)), /*#__PURE__*/_react["default"].createElement("script", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "App bg-light"
+  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null))), /*#__PURE__*/_react["default"].createElement("script", {
     src: "/static/bundle.js"
   }), /*#__PURE__*/_react["default"].createElement("script", {
     src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
@@ -64,7 +77,9 @@ app.route('/list').get(function (req, res) {
     crossOrigin: "anonymous"
   }), /*#__PURE__*/_react["default"].createElement("title", null, "Meli")), /*#__PURE__*/_react["default"].createElement("body", null, /*#__PURE__*/_react["default"].createElement("div", {
     id: "root2"
-  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null), /*#__PURE__*/_react["default"].createElement(_list["default"], null)), /*#__PURE__*/_react["default"].createElement("script", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "App bg-light"
+  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null), /*#__PURE__*/_react["default"].createElement(_list["default"], null))), /*#__PURE__*/_react["default"].createElement("script", {
     src: "/static/bundle.js"
   }), /*#__PURE__*/_react["default"].createElement("script", {
     src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
@@ -91,7 +106,9 @@ app.route('/items/:id').get(function (req, res) {
     crossOrigin: "anonymous"
   }), /*#__PURE__*/_react["default"].createElement("title", null, "Meli")), /*#__PURE__*/_react["default"].createElement("body", null, /*#__PURE__*/_react["default"].createElement("div", {
     id: "root2"
-  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null), /*#__PURE__*/_react["default"].createElement(_detail["default"], null)), /*#__PURE__*/_react["default"].createElement("script", {
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    className: "App bg-light"
+  }, /*#__PURE__*/_react["default"].createElement(_navbar["default"], null), /*#__PURE__*/_react["default"].createElement(_detail["default"], null))), /*#__PURE__*/_react["default"].createElement("script", {
     src: "/static/bundle.js"
   }), /*#__PURE__*/_react["default"].createElement("script", {
     src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",

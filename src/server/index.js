@@ -14,7 +14,16 @@ const app = express();
 
 app.use('/static', express.static(path.join(__dirname, '..', '..', 'dist', 'static')));
 
+let base = 
+    {
+        "author": {
+            "name": "diego",
+            "lastname": "palacios",
+        },
+        "categorie": "smartphones",
+    }
 
+const items= require('./data.json');
 
 app.route('/').get((req, res) => {
 
@@ -102,6 +111,33 @@ app.route('/items/:id').get((req, res) => {
     res.send(html);
 });
 
+app.get('/api/items/', (request, response) => {
+    response.json(items)
+})
+
+app.get('/api/items/:id', (request, response) => {
+    const id = request.params.id
+    const smartphone = items.items.find(smartphone => smartphone.id === id)
+    base["items"] = smartphone ;
+    if (base) {
+        return response.json(base)
+    } else {
+        response.status(404).end()
+    }
+    base["items"] = "" ;
+})
+
+app.get('/api/items/search/:title', (request, response) => {
+    const title = request.params.title.toLowerCase()
+    const smartphone = items.items.filter(smartphone => smartphone.title.toLowerCase().includes(title))
+    base["items"] = smartphone ;
+    if (smartphone) {
+        return response.json(base)
+    } else {
+        response.status(404).end()
+    }
+    base["items"] = "" ;
+})
 
 app.listen(3000, () => {
     console.log('server started: http://localhost:3000')
